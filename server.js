@@ -9,14 +9,14 @@ const imageRouter = require('./routers/imageRouter')
 connectDB()
 const app = express()
 app.use(express.json())
-app.use('/user',UserRouter)
-app.use('/autho',userAuthoRouter)
-app.use('/autho',adminAuthoRouter)
-app.use('/image',imageRouter)
+app.use('/user',UserRouter)  // user login register routes
+app.use('/autho',userAuthoRouter)  // user Authorization routes
+app.use('/autho',adminAuthoRouter) // admin authorization routes
+app.use('/image',imageRouter) // image upload and get routes
 
 app.get('/',(req,res) => {
     res.status(200).json({
-        success: false,
+        success: true,
         message:'Server will be running'
     })
 })
